@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>innerHTML / replaceHtml speed test</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 15px;
+            font-size: 90%;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
+
+        textarea {
+            width: 500px;
+            height: 100px;
+        }
+
+        h2, p {
+            margin: 6px 0 0;
+            font-size: 85%;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 85%;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px dotted #ccc;
+            margin: 3px 0;
+            color: #fff;
+        }
+
+        .subtitle {
+            font-weight: normal;
+            font-size: 90%;
+        }
+
+        #code, #output, #logContainer {
+            width: 99%;
+            border: 1px solid #ccc;
+            font-size: 80%;
+            padding: 5px;
+            background: #fafafa;
+            overflow: auto;
+        }
+
+        #code {
+            height: 35px;
+            font-size: 80%;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
+
+        #output {
+            height: 35px;
+        }
+
+        #logContainer {
+            height: 390px;
+            margin-bottom: 10px;
+        }
+
+        #log {
+            height: 100%;
+        }
+
+        #buttons {
+            height: 25px;
+            overflow: hidden;
+        }
+
+        #buttons input {
+            overflow: visible;
+            padding: 0 5px;
+        }
+
+        #loading {
+            display: none;
+            font-style: italic;
+            padding-left: 20px;
+            padding-bottom: 2px;
+        }
+
+        #buttons.loading label, #buttons.loading input {
+            display: none;
+        }
+
+        #buttons.loading #loading {
+            display: block;
+        }
+
+        #copyright {
+            color: #aaa;
+            font-size: 80%;
+            border-top: 1px solid #ddd;
+            margin-top: 10px;
+            padding-top: 5px;
+        }
+
+        #copyright a {
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+<div id="buttons">
+    <label>Elements:</label>
+    <input type="button" value="100" data-count="100" class="start_test"/>
+    <input type="button" value="500" data-count="500" class="start_test"/>
+    <input type="button" value="1000" data-count="1000" class="start_test"/>
+    <input type="button" value="10000" data-count="10000" class="start_test"/>
+    <p id="loading">Running the tests...</p>
+</div>
+
+<h2>Code <span class="subtitle">(short element names speed up markup generation)</span>:</h2>
+<textarea id="code"></textarea>
+
+<h2>Output:</h2>
+
+<div id="output"></div>
+
+<h2>Log:</h2>
+
+<div id="logContainer">
+    <div id="log"><em>Click the button at the top of the page to run the tests</em></div>
+</div>
+<script type="text/javascript" src="fasterDOM.min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="test.js"></script>
+</body>
+</html>
