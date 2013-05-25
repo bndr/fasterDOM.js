@@ -2,6 +2,7 @@ fasterDOM.js 0.1
 ============
 
 Basic operations like jquery but much faster.
+
 Operations: .css(), .attr(), .html(), .append(), .prepend(), .show(), .hide() , .get() (return elemens)
 
 Performance
@@ -14,6 +15,8 @@ You can also run your own tests on test.html page
 
 Example
 =======
+```
+var elements = new FastDom(".elements");
 
- var element = new FastDom("#haha");
-    element.append("appendString").append(document.createElement("div")).css({width:"1px"}).attr("class","someclass").html("some html string");
+elements.append("appendString").append(document.createElement("div")).css({width:"1px"}).attr("class","someclass").html("some html string");
+```
