@@ -12,7 +12,7 @@ function FasterDom(element) {
 FasterDom.prototype = {
     constructor: FasterDom,
     attr: function (name, value) {
-        if (typeof value == "undefined") {
+        if (this.checkIf(name, 'String') && typeof value === "undefined") {
             return this.element.getAttribute(name);
         }
         if (!this.checkIf(this.element, "Array")) {
@@ -34,14 +34,14 @@ FasterDom.prototype = {
         }
     },
     html: function (html) {
-        if (typeof html == "undefined") {
+        if (typeof html === "undefined") {
             return this.element.innerHTML;
         }
         if (!this.checkIf(this.element, "Array")) {
             this.element.innerHTML = html;
         } else {
             var len = this.element.length;
-            for (var i = 0; i < len; i++) {
+            for (var i = 0; i < len; ++i) {
                 var el = this.element[i];
                 var el2 = this.element[len - 1];
                 el.innerHTML = html;
@@ -53,7 +53,7 @@ FasterDom.prototype = {
     },
     css: function (obj) {
         if (!this.checkIf(this.element, "Array")) {
-            if (typeof obj == "undefined") {
+            if (typeof obj === "undefined") {
                 return this.element.style;
             }
             for (var key in obj) {
@@ -139,6 +139,6 @@ FasterDom.prototype = {
         return this.element;
     },
     checkIf: function (obj, type) {
-        return Object.prototype.toString.call(obj) == '[object ' + type + ']';
+        return Object.prototype.toString.call(obj) === '[object ' + type + ']';
     }
 }
