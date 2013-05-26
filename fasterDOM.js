@@ -5,9 +5,8 @@
  */
 
 function FasterDom(element) {
-    this.type = element[0];
-    this.name = element.substr(1, element.length);
-    this.element = (this.type === "#") ? document.getElementById(this.name) : Array.prototype.slice.call(document.getElementsByClassName(this.name));
+    var type = element[0],name = element.substr(1, element.length);
+    this.element = (type === "#") ? document.getElementById(name) : Array.prototype.slice.call(document.getElementsByClassName(name));
 }
 FasterDom.prototype = {
     constructor: FasterDom,
