@@ -17,7 +17,7 @@ You can also run the tests on your own computer with test.html page.  (Or here: 
 
 Example
 =======
-```
+```javascript
 var elements = new FasterDom(".elements");
 
 elements.append("Some string to append").prepend(document.createElement("div"))
