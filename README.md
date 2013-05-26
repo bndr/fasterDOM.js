@@ -3,7 +3,7 @@ fasterDOM.js 0.1
 
 Basic operations like jquery but much faster.
 
-Operations: .css(), .attr(), .html(), .append(), .prepend(), .show(), .hide() , .get() (return elemens)
+Operations: .css(), .attr(), .html(), .append(), .prepend(), .show(), .hide() , .get() (returns elements)
 
 Performance
 ===========
@@ -11,7 +11,7 @@ All the tests showed improvements to performance at least 30%.
 
 Performance Tests can be found here: http://jsperf.com/testbndr
 
-You can also run the tests on your own computer with test.html page.
+You can also run the tests on your own computer with test.html page.  (Or here: http://bndr.me/fasterdom/test.html)
 
 Example
 =======
