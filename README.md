@@ -5,6 +5,8 @@ Fast DOM manipulation with "jquery-like" syntax and ~1.8Kb code.
 
 Operations that are supported: .css(), .attr(), .html(), .append(), .prepend(), .show(), .hide() , .get() (returns elements)
 
+Selectors that are supported: By Id or by Class.
+
 Performance
 ===========
 All the tests showed improvements to performance at least 30%.
