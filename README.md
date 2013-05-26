@@ -11,12 +11,13 @@ All the tests showed improvements to performance at least 30%.
 
 Performance Tests can be found here: http://jsperf.com/testbndr
 
-You can also run your own tests on test.html page
+You can also run the tests on your own computer with test.html page.
 
 Example
 =======
 ```
 var elements = new FastDom(".elements");
 
-elements.append("appendString").append(document.createElement("div")).css({width:"1px"}).attr("class","someclass").html("some html string");
+elements.append("appendString").append(document.createElement("div"))
+        .css({width:"1px"}).attr("class","someclass").html("some html string").hide().show();
 ```
