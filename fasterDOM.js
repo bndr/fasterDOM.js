@@ -7,7 +7,7 @@
  */
 
 function FasterDom(element) {
-    this.type = element.substr(0, 1);
+    this.type = element[0];
     this.name = element.substr(1, element.length);
     this.element = (this.type === "#") ? document.getElementById(this.name) : Array.prototype.slice.call(document.getElementsByClassName(this.name));
 }
@@ -54,7 +54,7 @@ FasterDom.prototype = {
         return this;
     },
     css: function (obj) {
-        if (typeof obj == "undefied") {
+        if (typeof obj == "undefined") {
             return this.element.style;
         }
         if (!this.checkIf(this.element, "Array")) {
