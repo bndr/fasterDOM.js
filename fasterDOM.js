@@ -54,10 +54,10 @@ FasterDom.prototype = {
         return this;
     },
     css: function (obj) {
-        if (typeof obj == "undefined") {
-            return this.element.style;
-        }
         if (!this.checkIf(this.element, "Array")) {
+            if (typeof obj == "undefined") {
+                return this.element.style;
+            }
             for (var key in obj) {
                 this.element.style[key] = obj[key];
             }
@@ -115,7 +115,7 @@ FasterDom.prototype = {
             if (this.checkIf(doc, "String"))
                 this.element.insertAdjacentHTML('afterbegin', doc);
             else
-                this.element.insertBefore(doc.cloneNode(true),this.element.firstChild);
+                this.element.insertBefore(doc.cloneNode(true), this.element.firstChild);
         } else {
             var len = this.element.length;
             var type = this.checkIf(doc, "String");
@@ -123,8 +123,17 @@ FasterDom.prototype = {
                 if (type) {
                     this.element[len].insertAdjacentHTML('afterbegin', doc);
                 } else {
-                    this.element[len].insertBefore(doc.cloneNode(true),this.element[len].firstChild);
+                    this.element[len].insertBefore(doc.cloneNode(true), this.element[len].firstChild);
                 }
+            }
+        }
+    }, remove: function () {
+        if (!this.checkIf(this.element, "Array")) {
+            this.element.parentNode && this.element.parentNode.removeChild(this.element);
+        } else {
+            var len = this.element.length;
+            while (len--) {
+                this.element[len].parentNode && this.element[len].parentNode.removeChild(this.element[len]);
             }
         }
     },
@@ -135,4 +144,3 @@ FasterDom.prototype = {
         return Object.prototype.toString.call(obj) == '[object ' + type + ']';
     }
 }
-

@@ -3,7 +3,7 @@ fasterDOM.js 0.1
 
 Fast DOM manipulation with "jquery-like" syntax and ~1.8Kb code.
 
-Operations that are supported: .css(), .attr(), .html(), .append(), .prepend(), .show(), .hide() , .get() (returns elements)
+Operations that are supported: .css(), .attr(), .html(), .append(), .prepend(), .show(), .hide() , .remove(), .get() (returns elements)
 
 Selectors that are supported: By Id or by Class.
 
@@ -19,10 +19,12 @@ Example
 =======
 ```javascript
 var elements = new FasterDom(".elements");
+var single_element = new FasterDom("#element");
 
 elements.append("Some string to append").prepend(document.createElement("div"))
         .css({width:"1px",height:"20px"}).attr("some-attr","some-value").html("some html string").hide().show();
 
-elements.html() //Get html from element
-elements.attr("some-attr"); //Get attr from element
+single_element.html() // Returns html of the element
+single_element.attr("some-attr"); // Returns attr from element
+single_element.css() // Returns css of element
 ```
