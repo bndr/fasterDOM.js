@@ -2,8 +2,6 @@
  * Faster DOM manipulation
  * The most basic operations, but much faster than jquery. (mostly)
  * @author Vadim Kr.
- * @copyright (c) 2013 bndr
- * @license http://creativecommons.org/licenses/by-sa/3.0/legalcode
  */
 
 function FasterDom(element) {
