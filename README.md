@@ -1,9 +1,9 @@
 fasterDOM.js 0.1
 ============
 
-Basic operations like jquery but much faster.
+Fast DOM manipulation with "jquery-like" syntax and ~1.8Kb code.
 
-Operations: .css(), .attr(), .html(), .append(), .prepend(), .show(), .hide() , .get() (returns elements)
+Operations that are supported: .css(), .attr(), .html(), .append(), .prepend(), .show(), .hide() , .get() (returns elements)
 
 Performance
 ===========
