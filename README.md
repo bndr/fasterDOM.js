@@ -7,6 +7,8 @@ Operations that are supported: .css(), .attr(), .html(), .append(), .prepend(), 
 
 Selectors that are supported: By Id or by Class.
 
+The library is bound to $$, sou you can use it like this $$(".elements").html() or $$("#element").css();
+
 Performance
 ===========
 All the tests showed improvements to performance at least 30%.
@@ -18,8 +20,8 @@ You can also run the tests on your own computer with test.html page.  (Or here: 
 Example
 =======
 ```javascript
-var elements = new FasterDom(".elements");
-var single_element = new FasterDom("#element");
+var elements = $$(".elements");
+var single_element = $$("#element");
 
 elements.append("Some string to append").prepend(document.createElement("div"))
         .css({width:"1px",height:"20px"}).attr("some-attr","some-value").html("some html string").hide().show();

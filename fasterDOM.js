@@ -3,7 +3,7 @@
  * The most basic operations, but much faster than jquery. (mostly)
  * @author Vadim Kr.
  */
-
+(function(){
 function FasterDom(element) {
     var type = element[0],name = element.substr(1, element.length);
     this.element = (type === "#") ? document.getElementById(name) : Array.prototype.slice.call(document.getElementsByClassName(name));
@@ -141,3 +141,8 @@ FasterDom.prototype = {
         return Object.prototype.toString.call(obj) === '[object ' + type + ']';
     }
 }
+    window.$$ = function (a) {
+        return new FasterDom(a);
+    };
+
+})();

@@ -60,46 +60,46 @@ $(function () {
             switch (testNum) {
                 //FasterDom attr
                 case 0:
-                    new FasterDom(".class1").attr("data-cass", "fasterdom");
+                    $$(".class1").attr("data-cass", "fasterdom");
                     break;
                 //FasterDom css
                 case 1:
-                    new FasterDom(".class1").css({width: '10px'});
+                    $$(".class1").css({width: '10px'});
                     break;
                 //FasterDom html
                 case 2:
-                    new FasterDom(".class1").html("faster dom html");
+                    $$(".class1").html("faster dom html");
                     break;
                 //FasterDom append Element
                 case 3:
-                    var doms = new FasterDom(".class1");
+                    var doms = $$(".class1");
                     var doc = document.createElement('p');
                     doms.append(doc);
                     break;
                 //FasterDom append String
                 case 4:
-                    var doms = new FasterDom(".class1");
+                    var doms = $$(".class1");
                     doms.append("String append faster dom");
                     break;
                 case 5:
                 //FasterDom prepend Element
-                    var doms = new FasterDom(".class1");
+                    var doms = $$(".class1");
                     var doc = document.createElement('p');
                     doms.prepend(doc);
                     break;
                 //FasterDom prepend String
                 case 6:
-                    var doms = new FasterDom(".class1");
+                    var doms = $$(".class1");
                     doms.prepend("prepend string faster dom");
                     break;
                 //FasterDom hide
                 case 7:
-                    var doms = new FasterDom(".class1");
+                    var doms = $$(".class1");
                     doms.hide();
                     break;
                 //FasterDom show
                 case 8:
-                    var doms = new FasterDom(".class1");
+                    var doms = $$(".class1");
                     doms.show();
                     break;
                 //jQuery attr
