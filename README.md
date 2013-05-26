@@ -16,8 +16,11 @@ You can also run the tests on your own computer with test.html page.
 Example
 =======
 ```
-var elements = new FastDom(".elements");
+var elements = new FasterDom(".elements");
 
-elements.append("appendString").append(document.createElement("div"))
-        .css({width:"1px"}).attr("class","someclass").html("some html string").hide().show();
+elements.append("Some string to append").prepend(document.createElement("div"))
+        .css({width:"1px",height:"20px"}).attr("some-attr","some-value").html("some html string").hide().show();
+
+elements.html() //Get html from element
+elements.attr("some-attr"); //Get attr from element
 ```

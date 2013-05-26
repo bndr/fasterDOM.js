@@ -10,7 +10,7 @@ $(function () {
         log = tt("log"),
         logContainer = tt("logContainer"),
         buttonsContainer = tt("buttons"),
-        tenElsStr = "<div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div>",
+        tenElsStr = "<div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div><div class='class1'></div>",
         testStr = "",
         took = [],
         testMsg = [

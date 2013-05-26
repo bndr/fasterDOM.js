@@ -14,6 +14,9 @@ function FasterDom(element) {
 FasterDom.prototype = {
     constructor: FasterDom,
     attr: function (name, value) {
+        if (typeof value == "undefined") {
+            return this.element.getAttribute(name);
+        }
         if (!this.checkIf(this.element, "Array")) {
             this.set(this.element, name, value);
         } else {
