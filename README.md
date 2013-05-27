@@ -7,7 +7,7 @@ Operations that are supported: .css(), .attr(), .html(), .append(), .prepend(), 
 
 Selectors that are supported: By Id(#), by Class(.), by Name (@), by Tag(=)
 
-The library is bound to $$, sou you can use it like this $$(".elements").html() or $$("#element").css();
+The library is bound to $$, so you can use it like this $$(".elements").html() or $$("#element").css();
 
 Performance
 ===========
@@ -27,7 +27,7 @@ var some_other_element = $$("=div");
 elements.append("Some string to append").prepend(document.createElement("div"))
         .css({width:"1px",height:"20px"}).attr("some-attr","some-value").html("some html string").hide().show();
 
-single_element.html() // Returns html of the element
+single_element.html(); // Returns html of the element
 single_element.attr("some-attr"); // Returns attr from element
-single_element.css() // Returns css of element
+single_element.css(); // Returns css of element
 ```
