@@ -135,6 +135,8 @@
                     this.element[len].parentNode && this.element[len].parentNode.removeChild(this.element[len]);
                 }
             }
+        }, parent: function () {
+            return (!this.checkIf(this.element, "Array")) ? this.element.parentNode : null;
         },
         get: function () {
             return this.element;
