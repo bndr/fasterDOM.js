@@ -72,35 +72,29 @@ $(function () {
                     break;
                 //FasterDom append Element
                 case 3:
-                    var doms = $$(".class1");
                     var doc = document.createElement('p');
-                    doms.append(doc);
+                    $$(".class1").append(doc);
                     break;
                 //FasterDom append String
                 case 4:
-                    var doms = $$(".class1");
-                    doms.append("String append faster dom");
+                    $$(".class1").append("String append faster dom");
                     break;
                 case 5:
                 //FasterDom prepend Element
-                    var doms = $$(".class1");
                     var doc = document.createElement('p');
-                    doms.prepend(doc);
+                    $$(".class1").prepend(doc);
                     break;
                 //FasterDom prepend String
                 case 6:
-                    var doms = $$(".class1");
-                    doms.prepend("prepend string faster dom");
+                    $$(".class1").prepend("prepend string faster dom");
                     break;
                 //FasterDom hide
                 case 7:
-                    var doms = $$(".class1");
-                    doms.hide();
+                    $$(".class1").hide();
                     break;
                 //FasterDom show
                 case 8:
-                    var doms = $$(".class1");
-                    doms.show();
+                    $$(".class1").show();
                     break;
                 //jQuery attr
                 case 9:
