@@ -3,7 +3,7 @@ fasterDOM.js 0.1
 
 Fast DOM manipulation with "jquery-like" syntax and ~1.8Kb code.
 
-Operations that are supported: .css(), .attr(), .html(), .append(), .prepend(), .show(), .hide() , .remove(), .get() (returns elements)
+Operations that are supported: .css(), .attr(), .html(), .append(), .prepend(), .show(), .hide() , .remove(), .each(), .get() (returns elements)
 
 Selectors that are supported: By Id(#), by Class(.), by Name (@), by Tag(=)
 
