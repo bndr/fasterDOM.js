@@ -16,14 +16,10 @@
             if (this.checkIf(name, 'String') && typeof value === "undefined") {
                 return this.element.getAttribute(name);
             }
-            if (!this.checkIf(this.element, "Array")) {
-                this.set(this.element, name, value);
-            } else {
-                var i = this.element.length;
-                while (i--) {
-                    this.set(this.element[i], name, value);
-                }
-            }
+            var that = this;
+            this.each(function (element) {
+                that.set(element, name, value);
+            });
             return this;
         }, set: function (element, name, value) {
             if (this.checkIf(name, "String")) {
@@ -38,108 +34,87 @@
             if (typeof html === "undefined") {
                 return this.element.innerHTML;
             }
-            if (!this.checkIf(this.element, "Array")) {
-                this.element.innerHTML = html;
-            } else {
-                var len = this.element.length;
-                for (var i = 0; i < len; ++i) {
-                    var el = this.element[i];
-                    var el2 = this.element[len - 1];
-                    el.innerHTML = html;
-                    el2.innerHTML = html;
-                    len--;
-                }
-            }
+            this.each(function (element) {
+                element.innerHTML = html;
+            });
             return this;
         },
         css: function (obj) {
-            if (!this.checkIf(this.element, "Array")) {
-                if (typeof obj === "undefined") {
-                    return this.element.style;
-                }
-                for (var key in obj) {
-                    this.element.style[key] = obj[key];
-                }
-            } else {
-                var len = this.element.length;
-                while (len--) {
-                    for (var key in obj) {
-                        this.element[len].style[key] = obj[key];
-                    }
-                }
+            if (typeof obj === "undefined") {
+                return this.element.style;
             }
+            this.each(function (element) {
+                for (var key in obj) {
+                    element.style[key] = obj[key];
+                }
+            });
             return this;
         },
         hide: function () {
-            if (!this.checkIf(this.element, "Array")) {
-                this.element.style.display = 'none';
-            } else {
-                var len = this.element.length;
-                while (len--) {
-                    this.element[len].style.display = 'none';
-                }
-            }
+            this.each(function (element) {
+                element.style.display = 'none';
+            });
             return this;
         },
         show: function () {
-            if (!this.checkIf(this.element, "Array")) {
-                this.element.style.display = 'block';
+            this.each(function (element) {
+                element.style.display = 'block';
+            });
+            return this;
+        },
+        append: function (doc) {
+            var type = this.checkIf(doc, "String");
+            if (type) {
+                this.each(function (element) {
+                    element.insertAdjacentHTML('beforeend', doc);
+                });
             } else {
-                var len = this.element.length;
-                while (len--) {
-                    this.element[len].style.display = 'block';
-                }
+                this.each(function (element) {
+                    element.appendChild(doc.cloneNode(true));
+                });
             }
             return this;
-        }, append: function (doc) {
-            if (!this.checkIf(this.element, "Array")) {
-                if (this.checkIf(doc, "String"))
-                    this.element.insertAdjacentHTML('beforeend', doc);
-                else
-                    this.element.appendChild(doc.cloneNode(true));
-            } else {
-                var len = this.element.length;
-                var type = this.checkIf(doc, "String");
-                while (len--) {
-                    if (type) {
-                        this.element[len].insertAdjacentHTML('beforeend', doc);
-                    } else {
-                        this.element[len].appendChild(doc.cloneNode(true));
-                    }
-                }
-            }
 
-        }, prepend: function (doc) {
-            if (!this.checkIf(this.element, "Array")) {
-                if (this.checkIf(doc, "String"))
-                    this.element.insertAdjacentHTML('afterbegin', doc);
-                else
-                    this.element.insertBefore(doc.cloneNode(true), this.element.firstChild);
+        },
+        prepend: function (doc) {
+            var type = this.checkIf(doc, "String");
+            if (type) {
+                this.each(function (element) {
+                    element.insertAdjacentHTML('afterbegin', doc);
+                });
             } else {
-                var len = this.element.length;
-                var type = this.checkIf(doc, "String");
-                while (len--) {
-                    if (type) {
-                        this.element[len].insertAdjacentHTML('afterbegin', doc);
-                    } else {
-                        this.element[len].insertBefore(doc.cloneNode(true), this.element[len].firstChild);
-                    }
-                }
+                this.each(function (element) {
+                    element.insertBefore(doc.cloneNode(true), element.firstChild);
+                });
             }
-        }, remove: function () {
-            if (!this.checkIf(this.element, "Array")) {
-                this.element.parentNode && this.element.parentNode.removeChild(this.element);
-            } else {
-                var len = this.element.length;
-                while (len--) {
-                    this.element[len].parentNode && this.element[len].parentNode.removeChild(this.element[len]);
-                }
-            }
-        }, parent: function () {
+            return this;
+
+        },
+        remove: function () {
+            this.each(function (element) {
+                element.parentNode && element.parentNode.removeChild(element);
+            });
+            return this;
+        },
+        parent: function () {
             return (!this.checkIf(this.element, "Array")) ? this.element.parentNode : null;
         },
         get: function () {
             return this.element;
+        },
+        each: function (fun) {
+            if (!Array.prototype.forEach) {
+                Array.prototype.forEach = function (fn, scope) {
+                    for (var i = 0, len = this.length; i < len; ++i) {
+                        fn.call(scope, this[i], i, this);
+                    }
+                }
+            }
+            if (this.checkIf(this.element, "Array")) {
+                this.element.forEach(fun,this);
+            } else {
+                fun(this.element);
+            }
         },
         checkIf: function (obj, type) {
             return Object.prototype.toString.call(obj) === '[object ' + type + ']';
